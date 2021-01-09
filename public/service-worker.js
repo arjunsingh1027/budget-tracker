@@ -21,6 +21,26 @@ self.addEventListener("install", function (evt) {
             return cache.addAll(filesToCache);
         })
     );
+});
 
-    
+// fetch
+self.addEventListener("fetch", function (evt) {
+    if (evt.request.url.includes("/api/")) {
+        evt.respondWith(
+            caches.open(DATA_CACHE).then(cache => {
+                return fetch(evt.request)
+                    .then(res => {
+                        if (res.status === 200) {
+                            cache.put(evt.request.url, res.clone());
+                        }
+                        return res;
+                    })
+                    .catch(err => {
+                        return cache.match(evt.request);
+                    });
+            }).catch(err => console.log(err))
+        );
+
+        return;
+    }
 })
