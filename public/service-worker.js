@@ -43,4 +43,18 @@ self.addEventListener("fetch", function (evt) {
 
         return;
     }
-})
+
+    evt.respondWith(
+        fetch(evt.request).catch(function () {
+            return caches.match(evt.request).then(function (res) {
+                if (res) {
+                    return res;
+                } else (evt.request.headers.get("accept").includes("text/html")) {
+                    return caches.match("/");
+                };
+            })
+        })
+    );
+
+});
+
