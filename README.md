@@ -1,6 +1,6 @@
 # budget-tracker
 
-The Fitness Tracker Application allows users to track their workouts but adding exercises and statistics for each workout.
+The Budget Tracker Application allows users to keep track of their expenses.  
 
 [Link](https://code-budget-tracker.herokuapp.com/) to the deployed application.
 
@@ -10,6 +10,8 @@ The Fitness Tracker Application allows users to track their workouts but adding 
 * [Contact](#Contact)
 
 ## Demo
+
+Link to a demo video.
 
 ## Description
 
